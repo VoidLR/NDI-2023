@@ -1,3 +1,35 @@
 @import "tailwindcss/base";
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
+
+#first-img-solu-1-div {
+  position: relative;
+  display: inline-block;
+}
+
+#first-img-solu-2-div {
+  position: relative;
+  display: inline-block;
+}
+
+#first-img-solu-1-div::after {
+  content: "";
+  width: 10px;
+  height: 200%;
+  position: absolute;
+  top: 123px;
+  left: 123px;
+  background: #042f2e;
+  z-index: -1;
+}
+
+#first-img-solu-2-div::after {
+  content: "";
+  width: 10px;
+  height: 200%;
+  position: absolute;
+  top: 123px;
+  left: 123px;
+  background: #166534;
+  z-index: -1;
+}
