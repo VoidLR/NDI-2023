@@ -10,6 +10,13 @@ class AppFixtures extends Fixture
 {
     public function load(ObjectManager $manager): void
     {
+        for ($i = 0; $i < 90; $i++) {
+
+            $player11 = new QuizResults();
+            $player11->setName("Random Player $i");
+            $player11->setScore($i);
+            $manager->persist($player11);
+        }
         $player1 = new QuizResults();
         $player1->setName("Ruyben");
         $player1->setScore(1120);
