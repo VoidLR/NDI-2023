@@ -24,6 +24,7 @@
         "build": "encore production --progress"
     },
     "dependencies": {
-        "flowbite": "^2.2.0"
+        "flowbite": "^2.2.0",
+        "phaser": "^3.70.0"
     }
 }
