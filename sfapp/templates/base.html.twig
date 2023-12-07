@@ -11,6 +11,7 @@
         {% block javascripts %}
             {{ encore_entry_script_tags('app') }}
         {% endblock %}
+        <script src="/konami.js"></script>
     </head>
     <body>
         <nav class="bg-gradient-to-r from-teal-900 to-green-800 border-gray-200">
@@ -48,6 +49,9 @@
                 </div>
             </div>
         </nav>
+        <script>
+            const easterEgg = new Konami("/_error/404");
+        </script>
         {% block body %}{% endblock %}
     </body>
 </html>
