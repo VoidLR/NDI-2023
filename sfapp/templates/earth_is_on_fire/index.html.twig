@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello EarthIsOnFireController!{% endblock %}
+
+{% block body %}
+    <style>
+        p {
+            font-size: 48px;
+            text-align: center;
+        }
+        #globeViz {
+            overflow: hidden;
+        }
+    </style>
+    <div class="w-full h-auto bg-teal-950 ">
+        <p class="text-white mx-auto">Températures de l'été 2023</p>
+    </div>
+
+
+    <div class="w-full h-full">
+        <div id="globeViz"></div>
+    </div>
+
+
+    <script src="//unpkg.com/globe.gl"></script>
+    <script>
+        let w = window.innerWidth;
+        let h = window.innerHeight-150;
+
+        const world = Globe()
+            .globeImageUrl('/assets/easter-egg/earth.jpg')
+            .backgroundImageUrl('/assets/easter-egg/background.jpg')
+            .width(w)
+            .height(h)
+            (document.getElementById('globeViz'));
+        window.onresize = function(){
+            let w = window.innerWidth;
+            let h = window.innerHeight-150;
+            world.width(w)
+                .height(h);
+        }
+    </script>
+{% endblock %}
