@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Quizz{% endblock %}
+
+{% block body %}
+<main class="min-h-screen">
+    <div class="flex justify-center items-center content-center bg-teal-900 mt-24 sm:mx-[12.5%] xl:mx-[25%] shadow-2xl duration-300">
+        <h1 class="content-center items-center text-white p-10">{{ question }}</h1>
+    </div>
+
+    <section class="flex flex-col sm:mx-[12.5%] xl:mx-[25%] duration-300">
+        <div class="w-full flex flex-col lg:flex-row justify-between">
+            <div class="flex justify-center items-center content-center bg-green-800 mt-16 w-full lg:w-[40%] shadow-2xl duration-300">
+                <p class="content-center text-white py-10 lg:py-20 duration-300">{{ reponse1 }}</p>
+            </div>
+            <div class="flex justify-center items-center content-center bg-green-800 mt-5 lg:mt-16 w-full lg:w-[40%] shadow-2xl duration-300">
+                <p class="content-center text-white py-10 lg:py-20 duration-300">{{ reponse2 }}</p>
+            </div>
+        </div>
+        <div class="w-full flex flex-col lg:flex-row justify-between">
+            <div class="flex justify-center items-center content-center bg-green-800 mt-5 lg:mt-16 w-full lg:w-[40%] shadow-2xlduration-300">
+                <p class="content-center text-white py-10 lg:py-20 duration-300">{{ reponse3 }}</p>
+            </div>
+            <div class="flex justify-center items-center content-center bg-green-800 mt-5 lg:mt-16 w-full lg:w-[40%] shadow-2xl duration-300">
+                <p class="content-center text-white py-10 lg:py-20 duration-300">{{ reponse4 }}</p>
+            </div>
+        </div>
+
+    </section>
+</main>
+{% endblock %}
