@@ -24,7 +24,7 @@ class QuizResultsRepository extends ServiceEntityRepository
     public function findAllOrdered(): array
     {
         return $this->createQueryBuilder('q')
-            ->orderBy('q.score', 'ASC')
+            ->orderBy('q.score', 'DESC')
             ->getQuery()
             ->getResult()
             ;
