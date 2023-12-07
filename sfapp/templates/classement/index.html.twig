@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello ClassementController!{% endblock %}
+
+{% block body %}
+    <main class="">
+        <div class="flex justify-center items-center content-center  mt-16"><h1 class="bold content-center items-center justify-center text-3xl min-w-screen">Classement du Quizz</h1></div>
+
+        <section class="flex flex-col sm:mx-[12.5%] xl:mx-[25%] duration-300 mt-16">
+            {% if  participants|length >= 1 %}<div class="w-full flex flex-row justify-between text-4xl text-transparent bg-clip-text bg-gradient-to-r from-teal-700 to-green-600"><h1>{{ participants[0].name }}</h1><h1>{{ participants[0].score }}</h1></div>
+            {% if  participants|length >= 2 %}<div class="w-full flex flex-row justify-between text-2xl text-stone-500"><h2>2.{{ participants[1].name }}</h2><h2>{{ participants[1].score }}</h2></div>
+            {% if  participants|length >= 3 %}<div class="w-full flex flex-row justify-between text-xl text-amber-800"><h3>3.{{ participants[2].name }}</h3><h1>{{ participants[2].score }}</h1></div>
+            {% if  participants|length >= 4 %}<div class="w-full flex flex-row justify-between text-lg text-[]"><h4>4.{{ participants[3].name }}</h4><h4>{{ participants[3].score }}</h4></div>
+            {% if  participants|length >= 5 %}
+                {% set index = 5 %}
+                {% for participant in participants|slice(4,participants|length) %}
+                    <div class="w-full flex flex-row justify-between text-md"><p>{{ index }}.{{ participant.name }}</p><p>{{ participant.score }}</p></div>
+                {% set index = index + 1 %}
+                {% endfor %}
+            {% endif %}
+            {% endif %}
+            {% endif %}
+            {% endif %}
+            {% endif %}
+
+        </section>
+    </main>
+{% endblock %}
