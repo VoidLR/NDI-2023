@@ -284,6 +284,16 @@ class AppFixtures extends Fixture
         );
         $manager->persist($question);
 
+        $question = new Question(
+            'Parmi les industries suivantes, laquelle est la plus polluante ? ',
+            'Agriculture',
+            'Mode',
+            'Transport',
+            'Energie', //Bonne réponse
+            4
+        );
+        $manager->persist($question);
+
         $manager->flush();
 
     }
