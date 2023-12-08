@@ -10,7 +10,13 @@
         }
         #globeViz {
             overflow: hidden;
+            z-index: 1;
         }
+        #scale {
+            position: absolute;
+            z-index: 2;
+        }
+
     </style>
     <div class="w-full h-auto bg-teal-950 ">
         <p class="text-white mx-auto">Températures de l'été 2023</p>
@@ -18,14 +24,36 @@
 
 
     <div class="w-full h-full">
+        <img id="scale" src="#" class="" height="0"/>
         <div id="globeViz"></div>
     </div>
 
 
     <script src="//unpkg.com/globe.gl"></script>
     <script>
+
+        let scale = document.getElementById("scale");
+
         let w = window.innerWidth;
-        let h = window.innerHeight-150;
+        let h = window.innerHeight-154;
+
+        let details = navigator.userAgent;
+        let regexp = /android|iphone|kindle|ipad/i;
+        let isMobileDevice = regexp.test(details);
+
+        if (isMobileDevice) {
+            scale.src = "/assets/easter-egg/echelle2.jpg";
+            scale.width = String(w);
+            scale.style.bottom = "0px";
+            scale.className = "h-auto"
+        } else {
+            scale.src = "/assets/easter-egg/echelle1.jpg";
+            scale.height = String(h);
+            scale.style.float = "left";
+            scale.className = "w-auto";
+        }
+
+
 
         const world = Globe()
             .globeImageUrl('/assets/easter-egg/earth.jpg')
