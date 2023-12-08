@@ -21,6 +21,20 @@ class QuestionRepository extends ServiceEntityRepository
         parent::__construct($registry, Question::class);
     }
 
+    public function questionLeft( int $id){
+        $listeQuestion = $this->createQueryBuilder('q')
+            ->getQuery()
+            ->getResult();
+
+        $nbQuestion = 0;
+
+        foreach ($listeQuestion as $question){
+            $nbQuestion += 1;
+        }
+
+        return $nbQuestion;
+    }
+
 //    /**
 //     * @return Question[] Returns an array of Question objects
 //     */
