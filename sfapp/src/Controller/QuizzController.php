@@ -2,8 +2,11 @@
 
 namespace App\Controller;
 
+use App\Entity\QuizResults;
 use Doctrine\Persistence\ManagerRegistry;
 use App\Entity\Question;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -46,8 +49,32 @@ class QuizzController extends AbstractController
     #[Route('/quizz/{currentScore}', name: 'quizz_fin')]
     public function quizz_fin(int $currentScore,  ManagerRegistry $registry, Request $request): Response
     {
+        $questions = $registry->getManager()->getRepository('App\Entity\Question')->findAll();
+
+        $quiz_result = new QuizResults();
+
+        $form = $this->createFormBuilder($quiz_result)
+            ->add('name', TextType::class)
+            ->add('save', SubmitType::class, ['label' => 'Create Task'])
+            ->getForm();
+
+        $form->handleRequest($request);
+        if($form->isSubmitted() && $form->isValid()){
+
+            $quiz_result = $form->getData();
+            $quiz_result->setScore($currentScore);
+
+            $entityManager = $registry->getManager();
+            $entityManager->persist($quiz_result);
+            $entityManager->flush();
+
+            $this->redirectToRoute('app_classement');
+        }
+
         return $this->render('quizz/fin.html.twig', [
-            'currentScore' => $currentScore
+            'currentScore' => $currentScore,
+            'questions' => $questions,
+            'form' => $form
         ]);
     }
 
