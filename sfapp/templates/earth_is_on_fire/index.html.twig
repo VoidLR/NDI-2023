@@ -24,7 +24,7 @@
 
 
     <div class="w-full h-full">
-        <img id="scale" src="#" class="" height="0"/>
+        <img id="scale" src="#" class=""/>
         <div id="globeViz"></div>
     </div>
 
@@ -42,18 +42,17 @@
         let isMobileDevice = regexp.test(details);
 
         if (isMobileDevice) {
+            console.log("User is mobile")
             scale.src = "/assets/easter-egg/echelle2.jpg";
-            scale.width = String(w);
+            scale.style.width = String(w) + "px";
             scale.style.bottom = "0px";
             scale.className = "h-auto"
         } else {
             scale.src = "/assets/easter-egg/echelle1.jpg";
-            scale.height = String(h);
+            scale.style.height = String(h) + "px";
             scale.style.float = "left";
             scale.className = "w-auto";
         }
-
-
 
         const world = Globe()
             .globeImageUrl('/assets/easter-egg/earth.jpg')
