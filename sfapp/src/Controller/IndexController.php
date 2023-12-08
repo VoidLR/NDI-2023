@@ -13,4 +13,10 @@ class IndexController extends AbstractController
     {
         return $this->render('index/question.html.twig', []);
     }
+
+    #[Route('/informations', name: 'informations')]
+    public function informations(): Response
+    {
+        return $this->render('index/index.html.twig', []);
+    }
 }
