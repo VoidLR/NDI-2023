@@ -17,7 +17,7 @@ class ClassementController extends AbstractController
         $participants = $managerRegistry->getManager()->getRepository('App\Entity\QuizResults')->findAllOrdered();
         $participants = array_slice($participants, 0, 96);
 
-        return $this->render('classement/index.html.twig', [
+        return $this->render('classement/question.html.twig', [
             'participants' => $participants
         ]);
     }
