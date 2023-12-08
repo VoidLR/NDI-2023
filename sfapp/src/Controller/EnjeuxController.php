@@ -11,7 +11,7 @@ class EnjeuxController extends AbstractController
     #[Route('/enjeux', name: 'app_enjeux')]
     public function index(): Response
     {
-        return $this->render('enjeux/index.html.twig', [
+        return $this->render('enjeux/question.html.twig', [
             'controller_name' => 'EnjeuxController',
         ]);
     }
