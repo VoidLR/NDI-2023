@@ -23,14 +23,15 @@
 
     {% endfor %}
 
-    {{ form(form) }}
 
     <div class="flex flex-col justify-center items-center content-center  mt-16 duration-300">
         <h1 class="p-8 bold content-center items-center justify-center text-3xl min-w-screen">Vous pouvez enregistrer votre score !</h1>
-        <form action="/accueil" method="get" class="flex-wrap content-center">
-            <input type="text" placeholder="pseudo" class="mx-3 my-8 px-4 border border-2 border-s border-teal-900 rounded-2xl">
-            <input type="submit" class="mx-3 text-white self-center p-8 rounded-2xl bg-gradient-to-r from-teal-900 to-green-800">
-        </form>
+        <div class="flex-wrap content-center">
+            {{ form_start(form) }}
+            {{ form_widget(form.name, { 'attr': {'class': "mx-3 my-8 px-4 border border-2 border-s border-teal-900 rounded-2xl", 'placeholder': "pseudo"} }) }}
+            {{ form_widget(form.save, { 'attr': {'class': "mx-3 text-white self-center p-8 rounded-2xl bg-gradient-to-r from-teal-900 to-green-800", 'value': "Enregistrer"} }) }}
+            {{ form_end(form) }}
+        </div>
     </div>
 
     <button class="my-32 w-full duration-300">

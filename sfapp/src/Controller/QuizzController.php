@@ -55,7 +55,7 @@ class QuizzController extends AbstractController
 
         $form = $this->createFormBuilder($quiz_result)
             ->add('name', TextType::class)
-            ->add('save', SubmitType::class, ['label' => 'Create Task'])
+            ->add('save', SubmitType::class, ['label' => 'Envoyer'])
             ->getForm();
 
         $form->handleRequest($request);
