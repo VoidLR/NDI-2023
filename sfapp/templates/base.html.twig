@@ -46,6 +46,33 @@
                         <a href="https://www.nuitdelinfo.com"><img src="/assets/icons/logo-ndi.png" class="h-8" alt="Logo Nuit de l'Info" /></a>
                     </ul>
                 </div>
+                <style>
+                    body.dark-mode {
+                        background-color: black;
+                    }
+                    body.dark-mode,
+                    body.dark-mode p,
+                    body.dark-mode h1,
+                    body.dark-mode h2,
+                    body.dark-mode h3,
+                    body.dark-mode h4,
+                    body.dark-mode h5,
+                    body.dark-mode h6 {
+                        color: #ddd;
+                    }
+                    body.dark-mode a {
+                        color: #bbb; /* lighter gray for links */
+                    }
+                </style>
+                </head>
+                <body>
+                <button onclick="toggleDarkMode()">💡</button>
+                <script>
+                    function toggleDarkMode() {
+                        const body = document.body;
+                        body.classList.toggle("dark-mode");
+                    }
+                </script>
             </div>
         </nav>
         {% block body %}{% endblock %}
