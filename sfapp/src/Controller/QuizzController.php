@@ -68,7 +68,7 @@ class QuizzController extends AbstractController
             $entityManager->persist($quiz_result);
             $entityManager->flush();
 
-            $this->redirectToRoute('app_classement');
+            return $this->redirectToRoute('app_classement');
         }
 
         return $this->render('quizz/fin.html.twig', [
